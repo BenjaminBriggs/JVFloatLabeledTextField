@@ -123,6 +123,7 @@ const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
     locationField.font = [UIFont systemFontOfSize:kJVFieldFontSize];
     locationField.floatingLabel.font = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
     locationField.floatingLabelTextColor = floatingLabelColor;
+    locationField.placeholderTextColor = [UIColor cyanColor];
     [self.view addSubview:locationField];
     
     UIView *div3 = [UIView new];
@@ -137,7 +138,7 @@ const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
                                                              self.view.frame.size.width - 2*kJVFieldHMargin,
                                                              kJVFieldHeight*3)];
     descriptionField.placeholder = NSLocalizedString(@"Description", @"");
-    descriptionField.placeholderTextColor = [UIColor darkGrayColor];
+    descriptionField.placeholderTextColor = [UIColor cyanColor];
     descriptionField.font = [UIFont systemFontOfSize:kJVFieldFontSize];
     descriptionField.floatingLabel.font = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
     descriptionField.floatingLabelTextColor = floatingLabelColor;
