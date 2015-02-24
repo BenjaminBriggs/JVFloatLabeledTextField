@@ -65,7 +65,7 @@
     _animateEvenIfNotFirstResponder = 0;
     _floatingLabelShowAnimationDuration = kFloatingLabelShowAnimationDuration;
     _floatingLabelHideAnimationDuration = kFloatingLabelHideAnimationDuration;
-    [self setFloatingLabelText:self.placeholder];
+    [self setPlaceholder:self.placeholder];
     
     _adjustsClearButtonRect = 1;
 }
@@ -165,6 +165,12 @@
     [self setNeedsLayout];
 }
 
+- (void)setPlaceholderTextColor:(UIColor *)placeholderTextColor
+{
+    _placeholderTextColor = placeholderTextColor;
+    [self setPlaceholder:self.placeholder];
+}
+
 #pragma mark - UITextField
 
 - (CGSize)intrinsicContentSize
@@ -176,7 +182,12 @@
 
 - (void)setPlaceholder:(NSString *)placeholder
 {
-    [super setPlaceholder:placeholder];
+    if (self.placeholderTextColor) {
+        NSAttributedString *attributedPlaceholder = [[NSAttributedString alloc] initWithString:placeholder attributes:@{NSForegroundColorAttributeName : self.placeholderTextColor}];
+        [super setAttributedPlaceholder:attributedPlaceholder];
+    } else {
+        [super setPlaceholder:placeholder];
+    }
     [self setFloatingLabelText:placeholder];
 }
 
@@ -188,7 +199,7 @@
 
 - (void)setPlaceholder:(NSString *)placeholder floatingTitle:(NSString *)floatingTitle
 {
-    [super setPlaceholder:placeholder];
+    [self setPlaceholder:placeholder];
     [self setFloatingLabelText:floatingTitle];
 }
 

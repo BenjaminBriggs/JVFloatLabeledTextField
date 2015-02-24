@@ -60,6 +60,12 @@
 @property (nonatomic) CGFloat placeholderYPadding UI_APPEARANCE_SELECTOR;
 
 /**
+ * Text color to be applied to the placeholder.
+ * Defaults to `[[UIColor lightGrayColor] colorWithAlphaComponent:0.65f]`.
+ */
+@property (nonatomic, strong) UIColor * placeholderTextColor UI_APPEARANCE_SELECTOR;
+
+/**
  * Font to be applied to the floating label. 
  * Defaults to `[UIFont boldSystemFontOfSize:12.0f]`.
  * Provided for the convenience of using as an appearance proxy.
