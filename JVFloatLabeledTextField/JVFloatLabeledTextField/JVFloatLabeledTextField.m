@@ -253,13 +253,13 @@
 {
     [super layoutSubviews];
     
-    [self setLabelOriginForTextAlignment];
-    
     if (self.floatingLabelFont) {
         _floatingLabel.font = self.floatingLabelFont;
     }
     
     [_floatingLabel sizeToFit];
+    
+    [self setLabelOriginForTextAlignment];
     
     BOOL firstResponder = self.isFirstResponder;
     _floatingLabel.textColor = (firstResponder && self.text && self.text.length > 0 ?
